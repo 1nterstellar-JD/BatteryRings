@@ -15,6 +15,20 @@
 
 3. [新建 Issue](../../../issues/new)，写上设备型号，附上 `diag.txt`。如果官方软件能显示电量，也请写上软件名称
 
+### 命令行
+
+```powershell
+cd "$env:LOCALAPPDATA\Programs\BatteryRings"
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1           # 在终端里显示一次
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Watch    # 持续刷新
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Json     # 输出 JSON
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Diag     # 诊断信息
+```
+
+其他参数：`-Lang zh|en`、`-Interval <秒>`、`-NoGatt`（跳过 BLE GATT，更快）、`-ProbeCMedia`。
+
+设置保存在 `%APPDATA%\BatteryRings\widget.json`。
+
 ### 添加一种新协议
 
 每种协议是 `src/providers/` 下的一个文件，程序会按文件名顺序自动加载。新建一个文件，比如 `35-MyBrand.ps1`：
@@ -80,6 +94,20 @@ Register-BatteryProvider 'MyBrand' {
    ```
 
 3. [Open an issue](../../../issues/new) with the model name and `diag.txt`. Mention the vendor app if it shows the battery.
+
+### Command line
+
+```powershell
+cd "$env:LOCALAPPDATA\Programs\BatteryRings"
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1           # print once
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Watch    # keep refreshing
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Json     # JSON output
+powershell -ExecutionPolicy Bypass -File .\BatteryRings.ps1 -Diag     # diagnostics
+```
+
+Other options: `-Lang zh|en`, `-Interval <seconds>`, `-NoGatt` (skip BLE GATT, faster), `-ProbeCMedia`.
+
+Settings are stored in `%APPDATA%\BatteryRings\widget.json`.
 
 ### Adding a protocol
 
