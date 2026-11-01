@@ -1,0 +1,13 @@
+# local research material, downloads, captures (never commit third-party software)
+ref/
+
+# build outputs
+*.dll
+*.exe
+hidlog.txt
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp
